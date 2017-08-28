@@ -1,2 +1,2 @@
-# ArsiaCombat
-Combat plugin for Arsia RPG server.
+# AsriaCombat
+Combat plugin for Asria RPG server.
