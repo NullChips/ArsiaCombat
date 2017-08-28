@@ -1,7 +1,7 @@
 package me.nch.asriacombat;
 
 import me.nch.asriacombat.utils.ConfigFile;
-import me.nch.asriacombat.utils.HungerManager;
+import me.nch.asriacombat.modules.ModuleManager;
 import me.nch.asriacombat.utils.PlayerStatsFile;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,20 +16,26 @@ public class AsriaCombat extends JavaPlugin {
     private static ConfigFile configFile;
     private static PlayerStatsFile playerStatsFile;
 
-    private HungerManager hm;
+    private ModuleManager mm;
 
     private static ArrayList<AsriaPlayer> players;
+    private static int hungerChangeScale;
+    private static int loopNumber;
 
     @Override
     public void onEnable() {
         instance = this;
         players = new ArrayList<>();
-        hm = HungerManager.getInstance();
+        mm = ModuleManager.getInstance();
+        mm.registerModules();
 
         configFile = new ConfigFile(this);
         playerStatsFile = new PlayerStatsFile(this);
         configFile.loadConfig();
         playerStatsFile.loadStats();
+
+        hungerChangeScale = 1;
+        loopNumber = 0;
     }
 
     @Override
@@ -60,6 +66,14 @@ public class AsriaCombat extends JavaPlugin {
 
     public static ArrayList<AsriaPlayer> getPlayers() {
         return players;
+    }
+
+    public static int getHungerChangeScale() {
+        return hungerChangeScale;
+    }
+
+    public static int getLoopNumber() {
+        return loopNumber;
     }
 
 }

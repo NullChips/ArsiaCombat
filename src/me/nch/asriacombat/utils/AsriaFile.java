@@ -48,6 +48,18 @@ public abstract class AsriaFile {
         }
     }
 
+    public boolean containsString(String path) {
+        return config.contains(path) && config.get(path) instanceof String;
+    }
+
+    public boolean containsInt(String path) {
+        return config.contains(path) && config.get(path) instanceof Integer;
+    }
+
+    public boolean containsBoolean(String path) {
+        return config.contains(path) && config.get(path) instanceof Boolean;
+    }
+
     public FileConfiguration getConfig() {
         return config;
     }
