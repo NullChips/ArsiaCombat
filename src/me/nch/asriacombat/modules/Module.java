@@ -14,10 +14,11 @@ public abstract class Module {
         this.displayName = displayName;
 
         ConfigFile cf = AsriaCombat.getConfigFile();
-        if(cf.containsInt(configId)) {
+        if (cf.containsInt(configId)) {
             this.hungerChange = cf.getConfig().getInt(configId) * AsriaCombat.getHungerChangeScale();
         } else {
             this.hungerChange = defaultHungerChange * AsriaCombat.getHungerChangeScale();
         }
+
     }
 }

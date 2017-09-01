@@ -1,5 +1,8 @@
 package me.nch.asriacombat;
 
+import me.nch.asriacombat.listeners.PlayerListeners;
+import me.nch.asriacombat.threads.ModuleCheckThread;
+import me.nch.asriacombat.threads.PlayerStatsSaveThread;
 import me.nch.asriacombat.utils.ConfigFile;
 import me.nch.asriacombat.modules.ModuleManager;
 import me.nch.asriacombat.utils.PlayerStatsFile;
@@ -26,26 +29,42 @@ public class AsriaCombat extends JavaPlugin {
     public void onEnable() {
         instance = this;
         players = new ArrayList<>();
-        mm = ModuleManager.getInstance();
-        mm.registerModules();
 
         configFile = new ConfigFile(this);
         playerStatsFile = new PlayerStatsFile(this);
         configFile.loadConfig();
         playerStatsFile.loadStats();
 
+        mm = ModuleManager.getInstance();
+        mm.registerModules();
+
         hungerChangeScale = 1;
         loopNumber = 0;
+
+        registerListeners();
+
+        startThreads();
     }
 
     @Override
     public void onDisable() {
+        playerStatsFile.saveStats();
+
         instance = null;
     }
 
+    private void registerListeners() {
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
+    }
+
+    private void startThreads() {
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new ModuleCheckThread(), 20, 20);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PlayerStatsSaveThread(), 12000, 12000);
+    }
+
     public static Player getPlayerFromUUID(String uuid) {
-        for(Player p : Bukkit.getServer().getOnlinePlayers()) {
-            if(uuid.equals(p.getUniqueId().toString())) {
+        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+            if (uuid.equals(p.getUniqueId().toString())) {
                 return p;
             }
         }

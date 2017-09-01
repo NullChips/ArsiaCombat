@@ -16,6 +16,7 @@ public class ModuleManager {
     private ArrayList<Module> modules;
 
     public void registerModules() {
+        modules.add(new SprintingModule());
         //TODO Register modules.
     }
 

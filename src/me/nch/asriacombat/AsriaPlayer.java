@@ -37,6 +37,7 @@ public class AsriaPlayer {
         if (p != null) {
             p.setFoodLevel(health);
         }
+        //TODO Handle when player runs out of health.
     }
 
     public Location getLastLocation() {
