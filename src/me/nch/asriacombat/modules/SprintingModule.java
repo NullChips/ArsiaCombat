@@ -3,6 +3,7 @@ package me.nch.asriacombat.modules;
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffectType;
 
 public class SprintingModule extends RepeatingModule {
 
@@ -16,7 +17,7 @@ public class SprintingModule extends RepeatingModule {
             Player p = AsriaCombat.getPlayerFromUUID(ap.getUUID());
 
             if (p != null) {
-                if(p.isSprinting()) {
+                if(p.isSprinting() && !p.hasPotionEffect(PotionEffectType.SPEED)) {
                     ap.setHealth(ap.getHealth() - 1);
                 }
             }
