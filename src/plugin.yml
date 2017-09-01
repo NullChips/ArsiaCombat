@@ -2,3 +2,8 @@ name: AsriaCombat
 author: NCH
 version: 1.0
 main: me.nch.asriacombat.AsriaCombat
+load: POSTWORLD
+
+commands:
+    listmodules:
+        description: List the modules and their health effects.

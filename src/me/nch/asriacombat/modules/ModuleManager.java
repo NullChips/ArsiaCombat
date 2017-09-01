@@ -17,6 +17,7 @@ public class ModuleManager {
 
     public void registerModules() {
         modules.add(new SprintingModule());
+        modules.add(new JumpingModule());
         //TODO Register modules.
     }
 

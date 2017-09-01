@@ -2,6 +2,7 @@ package me.nch.asriacombat.modules;
 
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.utils.ConfigFile;
+import org.bukkit.Bukkit;
 
 public abstract class Module {
 
@@ -15,10 +16,35 @@ public abstract class Module {
 
         ConfigFile cf = AsriaCombat.getConfigFile();
         if (cf.containsInt(configId)) {
-            this.hungerChange = cf.getConfig().getInt(configId) * AsriaCombat.getHungerChangeScale();
+            this.hungerChange = cf.getConfig().getInt(configId);
         } else {
-            this.hungerChange = defaultHungerChange * AsriaCombat.getHungerChangeScale();
+            this.hungerChange = defaultHungerChange;
         }
-
     }
+
+
+    public String getConfigId() {
+        return configId;
+    }
+
+    public void setConfigId(String configId) {
+        this.configId = configId;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public int getHungerChange() {
+        return hungerChange;
+    }
+
+    public void setHungerChange(int hungerChange) {
+        this.hungerChange = hungerChange;
+    }
+
 }

@@ -8,7 +8,7 @@ import org.bukkit.potion.PotionEffectType;
 public class SprintingModule extends RepeatingModule {
 
     protected SprintingModule() {
-        super("sprinting", "Sprinting", 1, 1);
+        super("sprinting", "Sprinting", -1, 1);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class SprintingModule extends RepeatingModule {
 
             if (p != null) {
                 if(p.isSprinting() && !p.hasPotionEffect(PotionEffectType.SPEED)) {
-                    ap.setHealth(ap.getHealth() - 1);
+                    ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }
         }
