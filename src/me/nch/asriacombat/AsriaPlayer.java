@@ -17,9 +17,12 @@ public class AsriaPlayer {
 
     public boolean locationCheck(Location l) {
         if(lastLocation != null) {
-            return l.getBlockX() == lastLocation.getBlockX() && l.getBlockY() == lastLocation.getBlockY() &&
+            boolean sameLocation = l.getBlockX() == lastLocation.getBlockX() && l.getBlockY() == lastLocation.getBlockY() &&
                     l.getBlockZ() == lastLocation.getBlockZ() && l.getWorld().getName() == lastLocation.getWorld().getName();
+            lastLocation = l;
+            return sameLocation;
         }
+        lastLocation = l;
         return false;
     }
 

@@ -2,7 +2,6 @@ package me.nch.asriacombat.modules;
 
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.utils.ConfigFile;
-import org.bukkit.Bukkit;
 
 public abstract class Module {
 
