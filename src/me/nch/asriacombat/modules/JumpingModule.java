@@ -3,7 +3,6 @@ package me.nch.asriacombat.modules;
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
 import me.nch.asriacombat.threads.JumpingCooldownThread;
-import me.nch.asriacombat.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerMoveEvent;

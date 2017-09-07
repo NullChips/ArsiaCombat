@@ -3,6 +3,7 @@ package me.nch.asriacombat.modules;
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 public class LocationCheckModule extends RepeatingModule {
 
@@ -16,8 +17,9 @@ public class LocationCheckModule extends RepeatingModule {
             Player p = AsriaCombat.getPlayerFromUUID(ap.getUUID());
 
             if (p != null) {
-                if(ap.locationCheck(p.getLocation())) {
-                    ap.setHealth(ap.getHealth() + getHungerChange());
+                Vector v = p.getVelocity();
+                if ((v.getX() == 0) && (v.getY() == 0) && (v.getZ() == 0)) {
+                    ap.setHealth(ap.getHealth() - getHungerChange());
                 }
             }
         }
