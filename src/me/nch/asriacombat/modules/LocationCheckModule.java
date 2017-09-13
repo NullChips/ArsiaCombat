@@ -19,9 +19,11 @@ public class LocationCheckModule extends RepeatingModule {
             if (p != null) {
                 Vector v = p.getVelocity();
                 if ((v.getX() == 0) && (v.getY() == 0) && (v.getZ() == 0)) {
-                    ap.setHealth(ap.getHealth() - getHungerChange());
+                    ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }
         }
     }
+
+    //TODO Does this actually check if the player is standing still?
 }

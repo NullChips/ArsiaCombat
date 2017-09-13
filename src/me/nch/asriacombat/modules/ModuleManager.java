@@ -18,9 +18,10 @@ public class ModuleManager {
     public void registerModules() {
         modules.add(new SprintingModule());
         modules.add(new JumpingModule());
-        modules.add(new BlockingModule());
+        modules.add(new BracingModule());
 
         modules.add(new LocationCheckModule());
+        modules.add(new CrouchWalkingModule());
         //TODO Register modules.
     }
 

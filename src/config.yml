@@ -2,3 +2,4 @@ sprinting: -1
 jumping: -1
 bracing: -2
 standing-still: 1
+crouching-and-walking: 2
