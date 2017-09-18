@@ -20,7 +20,7 @@ public class ModuleManager {
         modules.add(new JumpingModule());
         modules.add(new BracingModule());
 
-        modules.add(new LocationCheckModule());
+        modules.add(new StandingModule());
         modules.add(new CrouchWalkingModule());
         //TODO Register modules.
     }

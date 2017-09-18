@@ -2,6 +2,7 @@ package me.nch.asriacombat.modules;
 
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
+import me.nch.asriacombat.utils.ChatUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -28,6 +29,7 @@ public class CrouchWalkingModule extends RepeatingModule {
             if (p != null) {
                 Vector v = p.getVelocity();
                 if ((v.getX() != 0) && (v.getY() != 0) && (v.getZ() != 0) && p.isSneaking() && !p.isSprinting()) {
+                    ChatUtils.debugMessage("Player is crouching and walking.");
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }

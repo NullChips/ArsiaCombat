@@ -2,12 +2,12 @@ package me.nch.asriacombat.modules;
 
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
+import me.nch.asriacombat.utils.ChatUtils;
 import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
 
-public class LocationCheckModule extends RepeatingModule {
+public class StandingModule extends RepeatingModule {
 
-    protected LocationCheckModule() {
+    protected StandingModule() {
         super("standing-still", "Standing Still", 1, 1);
     }
 
@@ -17,13 +17,13 @@ public class LocationCheckModule extends RepeatingModule {
             Player p = AsriaCombat.getPlayerFromUUID(ap.getUUID());
 
             if (p != null) {
-                Vector v = p.getVelocity();
-                if ((v.getX() == 0) && (v.getY() == 0) && (v.getZ() == 0)) {
+                if (ap.locationCheck(p.getLocation())) {
+                    ChatUtils.debugMessage("Player is standing still.");
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
+                ap.setLastLocation(p.getLocation());
             }
         }
     }
-
-    //TODO Does this actually check if the player is standing still?
+    //TODO Still doesn't register as being stood still?...
 }

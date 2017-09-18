@@ -2,6 +2,7 @@ package me.nch.asriacombat.modules;
 
 import me.nch.asriacombat.AsriaCombat;
 import me.nch.asriacombat.AsriaPlayer;
+import me.nch.asriacombat.utils.ChatUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
@@ -13,11 +14,12 @@ public class SprintingModule extends RepeatingModule {
 
     @Override
     public void updateModule() {
-        for(AsriaPlayer ap : AsriaCombat.getPlayers()) {
+        for (AsriaPlayer ap : AsriaCombat.getPlayers()) {
             Player p = AsriaCombat.getPlayerFromUUID(ap.getUUID());
 
             if (p != null) {
-                if(p.isSprinting() && !p.hasPotionEffect(PotionEffectType.SPEED)) {
+                if (p.isSprinting() && !p.hasPotionEffect(PotionEffectType.SPEED)) {
+                    ChatUtils.debugMessage("Player is sprinting.");
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }
