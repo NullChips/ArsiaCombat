@@ -22,6 +22,7 @@ public class ModuleManager {
 
         modules.add(new StandingModule());
         modules.add(new CrouchWalkingModule());
+        modules.add(new CrouchingModule());
         //TODO Register modules.
     }
 
