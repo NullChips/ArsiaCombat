@@ -4,3 +4,4 @@ bracing: -2
 standing-still: 1
 crouching-and-walking: 2
 crouching: 3
+walking: 1
