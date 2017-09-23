@@ -1,7 +1,9 @@
 package me.nch.asriacombat;
 
 import me.nch.asriacombat.commands.ListModulesCommand;
+import me.nch.asriacombat.commands.ListPlayersCommand;
 import me.nch.asriacombat.listeners.PlayerListeners;
+import me.nch.asriacombat.threads.LastLocationThread;
 import me.nch.asriacombat.threads.ModuleCheckThread;
 import me.nch.asriacombat.threads.PlayerStatsSaveThread;
 import me.nch.asriacombat.utils.ConfigFile;
@@ -61,11 +63,13 @@ public class AsriaCombat extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("listmodules").setExecutor(new ListModulesCommand());
+        getCommand("listplayers").setExecutor(new ListPlayersCommand());
     }
 
     private void startThreads() {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new ModuleCheckThread(), 20, 20);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PlayerStatsSaveThread(), 12000, 12000);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new LastLocationThread(), 20, 20);
     }
 
     public static Player getPlayerFromUUID(String uuid) {

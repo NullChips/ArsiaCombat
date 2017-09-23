@@ -25,11 +25,8 @@ public class CrouchWalkingModule extends RepeatingModule {
     public void updateModule() {
         for (AsriaPlayer ap : AsriaCombat.getPlayers()) {
             Player p = AsriaCombat.getPlayerFromUUID(ap.getUUID());
-
             if (p != null) {
-                Vector v = p.getVelocity();
-                if ((v.getX() != 0) && (v.getY() != 0) && (v.getZ() != 0) && p.isSneaking() && !p.isSprinting()) {
-                    ChatUtils.debugMessage("Player is crouching and walking.");
+                if (!ap.locationCheck(p.getLocation()) && p.isSneaking()) {
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }

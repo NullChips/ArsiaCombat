@@ -21,6 +21,7 @@ public class PlayerListeners implements Listener {
         if(!PlayerStatsFile.containsPlayer(e.getPlayer())) {
             AsriaPlayer ap = new AsriaPlayer(e.getPlayer().getUniqueId().toString(), 20);
             ap.setHealth(20);
+            ap.setLastLocation(e.getPlayer().getLocation());
 
             AsriaCombat.getPlayers().add(ap);
         }

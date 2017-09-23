@@ -7,3 +7,5 @@ load: POSTWORLD
 commands:
     listmodules:
         description: List the modules and their health effects.
+    listplayers:
+        description: List the players that are stored in the server's memory.

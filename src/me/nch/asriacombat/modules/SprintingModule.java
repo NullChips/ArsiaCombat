@@ -19,7 +19,6 @@ public class SprintingModule extends RepeatingModule {
 
             if (p != null) {
                 if (p.isSprinting() && !p.hasPotionEffect(PotionEffectType.SPEED)) {
-                    ChatUtils.debugMessage("Player is sprinting.");
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
             }

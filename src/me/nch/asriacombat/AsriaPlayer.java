@@ -1,5 +1,7 @@
 package me.nch.asriacombat;
 
+import me.nch.asriacombat.utils.ChatUtils;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -17,8 +19,8 @@ public class AsriaPlayer {
 
     public boolean locationCheck(Location l) {
         if (lastLocation != null) {
-            return l.getBlockX() == lastLocation.getBlockX() && l.getBlockY() == lastLocation.getBlockY() &&
-                    l.getBlockZ() == lastLocation.getBlockZ() && l.getWorld().getName() == lastLocation.getWorld().getName();
+            return l.getX() == lastLocation.getX() && l.getY() == lastLocation.getY() &&
+                    l.getZ() == lastLocation.getZ() && l.getWorld().getName() == lastLocation.getWorld().getName();
 
         }
         return false;
@@ -38,10 +40,12 @@ public class AsriaPlayer {
             if (health >= 20) {
                 p.setFoodLevel(20);
                 this.health = 20;
+                return;
             } else if (health <= 0) {
                 //TODO Do something when someone loses all their health?
                 this.health = 0;
                 p.setFoodLevel(0);
+                return;
             }
             p.setFoodLevel(health);
             this.health = health;

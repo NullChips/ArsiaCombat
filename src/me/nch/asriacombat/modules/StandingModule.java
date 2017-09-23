@@ -18,10 +18,8 @@ public class StandingModule extends RepeatingModule {
 
             if (p != null) {
                 if (ap.locationCheck(p.getLocation())) {
-                    ChatUtils.debugMessage("Player is standing still.");
                     ap.setHealth(ap.getHealth() + getHungerChange());
                 }
-                ap.setLastLocation(p.getLocation());
             }
         }
     }
