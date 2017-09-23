@@ -13,6 +13,7 @@ import me.nch.asriacombat.utils.PlayerStatsFile;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 
@@ -71,7 +72,7 @@ public class AsriaCombat extends JavaPlugin {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new ModuleCheckThread(), 20, 20);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PlayerStatsSaveThread(), 12000, 12000);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new LastLocationThread(), 20, 20);
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PotionEffectThread(), 20, 20);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PotionEffectThread(), 8, 8);
     }
 
     public static Player getPlayerFromUUID(String uuid) {
@@ -84,12 +85,18 @@ public class AsriaCombat extends JavaPlugin {
     }
 
     public static AsriaPlayer getAsriaPlayerFromUUID(String uuid) {
-        for(AsriaPlayer ap : players) {
-            if(ap.getUUID().equals(uuid)) {
+        for (AsriaPlayer ap : players) {
+            if (ap.getUUID().equals(uuid)) {
                 return ap;
             }
         }
         return null;
+    }
+
+    public static boolean playerIsFalling(Player p) {
+        Vector v = p.getVelocity();
+
+        return v.getY() < 0 && v.getY() != -0.0784000015258789;
     }
 
     public static AsriaCombat getInstance() {

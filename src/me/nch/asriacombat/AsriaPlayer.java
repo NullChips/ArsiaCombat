@@ -60,7 +60,7 @@ public class AsriaPlayer {
                 removePotionEffects(p);
                 addPotionEffect(p, PotionEffectType.WEAKNESS, 1);
                 addPotionEffect(p, PotionEffectType.SLOW, 3);
-                addPotionEffect(p, PotionEffectType.BLINDNESS, 1);
+                addPotionEffect(p, PotionEffectType.BLINDNESS, 100);
                 return;
             }
         }

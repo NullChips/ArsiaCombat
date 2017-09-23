@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 public class WalkingModule extends RepeatingModule{
 
     protected WalkingModule() {
-        super("walking", "walking", 1, 1);
+        super("walking", "walking", 0, 1);
     }
 
     @Override

@@ -5,16 +5,16 @@ import me.nch.asriacombat.AsriaPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class BracingModule extends RepeatingModule {
+public class BlockingModule extends RepeatingModule {
 
-    protected BracingModule() {
-        super("bracing", "Bracing", -2, 1);
+    protected BlockingModule() {
+        super("blocking", "Blocking", -5, 1);
     }
 
     @Override
     public void updateModule() {
-        for(Player p : Bukkit.getServer().getOnlinePlayers()) {
-            if(p.isBlocking() && p.isSneaking()) {
+        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+            if (p.isBlocking() && !p.isSneaking()) {
                 AsriaPlayer ap = AsriaCombat.getAsriaPlayerFromUUID(p.getUniqueId().toString());
 
                 if (ap != null) {

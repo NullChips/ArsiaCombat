@@ -4,4 +4,8 @@ bracing: -2
 standing-still: 1
 crouching-and-walking: 2
 crouching: 3
-walking: 1
+walking: 0
+attacking: -4
+blocking: -5
+bracing-a-lounge: -3
+bracing-a-swipe: 4

@@ -19,11 +19,14 @@ public class ModuleManager {
         modules.add(new SprintingModule());
         modules.add(new JumpingModule());
         modules.add(new BracingModule());
+        modules.add(new AttackingModule());
+        modules.add(new BracingLoungeModule());
 
         modules.add(new StandingModule());
         modules.add(new CrouchWalkingModule());
         modules.add(new CrouchingModule());
         modules.add(new WalkingModule());
+        modules.add(new BracingSwipeModule());
         //TODO Register modules.
     }
 
