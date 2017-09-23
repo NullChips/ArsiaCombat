@@ -6,6 +6,7 @@ import me.nch.asriacombat.listeners.PlayerListeners;
 import me.nch.asriacombat.threads.LastLocationThread;
 import me.nch.asriacombat.threads.ModuleCheckThread;
 import me.nch.asriacombat.threads.PlayerStatsSaveThread;
+import me.nch.asriacombat.threads.PotionEffectThread;
 import me.nch.asriacombat.utils.ConfigFile;
 import me.nch.asriacombat.modules.ModuleManager;
 import me.nch.asriacombat.utils.PlayerStatsFile;
@@ -70,6 +71,7 @@ public class AsriaCombat extends JavaPlugin {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new ModuleCheckThread(), 20, 20);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PlayerStatsSaveThread(), 12000, 12000);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new LastLocationThread(), 20, 20);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PotionEffectThread(), 20, 20);
     }
 
     public static Player getPlayerFromUUID(String uuid) {
