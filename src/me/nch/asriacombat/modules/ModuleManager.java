@@ -27,6 +27,7 @@ public class ModuleManager {
         modules.add(new CrouchingModule());
         modules.add(new WalkingModule());
         modules.add(new BracingSwipeModule());
+        modules.add(new BracingStrikeModule());
         //TODO Register modules.
     }
 
