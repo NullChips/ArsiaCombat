@@ -1,5 +1,6 @@
 package me.nch.asriacombat;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
@@ -88,7 +89,7 @@ public class AsriaPlayer {
     public void setHealth(int health) {
         Player p = AsriaCombat.getPlayerFromUUID(UUID);
 
-        if (p != null) {
+        if (p != null && p.getGameMode() == GameMode.SURVIVAL) {
             if (health >= 20) {
                 p.setFoodLevel(20);
                 this.health = 20;
